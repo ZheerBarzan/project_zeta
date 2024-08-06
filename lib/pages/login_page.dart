@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_bugkill/components/my_button.dart';
 import 'package:project_bugkill/components/my_square.dart';
 import 'package:project_bugkill/components/my_textfiled.dart';
+import 'package:project_bugkill/services/auth_service.dart';
 
 class LoginPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
