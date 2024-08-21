@@ -49,8 +49,7 @@ class RegisterPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             // logo
-            Image.asset('lib/images/mm.gif', height: 100),
-
+            Icon(Icons.bug_report),
             const SizedBox(
               height: 50,
             ),
