@@ -44,7 +44,7 @@ class RegisterPage extends StatelessWidget {
       /* appBar: AppBar(
         title: const Text('چپە چپ'),
       ),*/
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Center(
         child: SingleChildScrollView(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [

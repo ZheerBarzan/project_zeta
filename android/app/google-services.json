@@ -12,7 +12,12 @@
           "package_name": "com.example.project_bugkill"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "638628601654-t9076lb02v3di5qlch8o130ptpda71at.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDm5do226yOLYrG2XNIYDnw5_1n1N7t4zk"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "638628601654-t9076lb02v3di5qlch8o130ptpda71at.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "638628601654-64rh022js711b9110o0rfb7u86tabtdg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.projectBugkill"
+              }
+            }
+          ]
         }
       }
     }
