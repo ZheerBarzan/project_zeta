@@ -41,9 +41,6 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /* appBar: AppBar(
-        title: const Text('چپە چپ'),
-      ),*/
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: Center(
         child: SingleChildScrollView(
@@ -56,7 +53,7 @@ class RegisterPage extends StatelessWidget {
             //welcome back
 
             Text(
-              "!!!یاخوا وێڵکەم بی",
+              "W E L C O M E",
               style: TextStyle(
                   fontSize: 28,
                   color: Theme.of(context).colorScheme.inversePrimary),
