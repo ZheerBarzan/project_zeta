@@ -16,6 +16,16 @@ class _HomePageState extends State<HomePage> {
   // make an instance of the user
   final currentUser = FirebaseAuth.instance.currentUser!;
 
+  void postBug() {
+    if (_messageController.text.isNotEmpty) {
+      FirebaseFirestore.instance.collection("user posts").add({
+        "message": _messageController.text,
+        "username": currentUser.email,
+        "time": Timestamp.now(),
+      });
+    }
+  }
+
   final TextEditingController _messageController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -39,15 +49,14 @@ class _HomePageState extends State<HomePage> {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     return ListView.builder(
+                      itemCount: snapshot.data!.docs.length,
                       itemBuilder: (context, index) {
                         // get the messages
                         final post = snapshot.data!.docs[index];
 
                         return BugPost(
-                          message: post['message'],
-                          username: post['username'],
-                          time: post['time'],
-                        );
+                            message: post['message'],
+                            username: post['username']);
                       },
                     );
                   } else if (snapshot.hasError) {
@@ -84,6 +93,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       onPressed: () {
                         // send message
+                        postBug();
                       },
                       child: const Icon(Icons.send)),
                 )
