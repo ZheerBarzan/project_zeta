@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:project_bugkill/components/bug_posts.dart';
 import 'package:project_bugkill/components/my_drawer.dart';
 import 'package:project_bugkill/components/my_textfiled.dart';
 
@@ -38,17 +39,23 @@ class _HomePageState extends State<HomePage> {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     return ListView.builder(
-                      itemCount: snapshot.data!.docs.length,
                       itemBuilder: (context, index) {
                         // get the messages
                         final post = snapshot.data!.docs[index];
 
-                        return const Text("successfull ");
+                        return BugPost(
+                          message: post['message'],
+                          username: post['username'],
+                          time: post['time'],
+                        );
                       },
                     );
+                  } else if (snapshot.hasError) {
+                    return Text(snapshot.error.toString());
                   }
 
-                  return const Text("loading");
+                  return const Center(
+                      child: CircularProgressIndicator.adaptive());
                 },
               ),
             ),
