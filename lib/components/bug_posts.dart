@@ -1,14 +1,44 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:project_bugkill/components/like_button.dart';
 
-class BugPost extends StatelessWidget {
+class BugPost extends StatefulWidget {
   final String message;
   final String username;
+  final String postID;
+  final List<String> likes;
+
   final Timestamp? time;
 
   const BugPost(
-      {super.key, required this.message, required this.username, this.time});
+      {super.key,
+      required this.message,
+      required this.username,
+      this.time,
+      required this.postID,
+      required this.likes});
+
+  @override
+  State<BugPost> createState() => _BugPostState();
+}
+
+class _BugPostState extends State<BugPost> {
+  // make an instance of the user
+  final currentUser = FirebaseAuth.instance.currentUser!;
+  bool isLiked = false;
+
+  @override
+  void initState() {
+    super.initState();
+    isLiked = widget.likes.contains(currentUser.email);
+  }
+
+  void toggleLike() {
+    setState(() {
+      isLiked = !isLiked;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,15 +68,18 @@ class BugPost extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                username,
+                widget.username,
                 style: TextStyle(color: Colors.grey.shade600),
               ),
               const SizedBox(
                 height: 10,
               ),
-              Text(message),
+              Text(widget.message),
             ],
-          )
+          ),
+
+          const Spacer(),
+          LikeButton(isLiked: isLiked, onTap: toggleLike)
         ],
       ),
     );

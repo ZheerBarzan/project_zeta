@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
       FirebaseFirestore.instance.collection("user posts").add({
         "message": _messageController.text,
         "username": currentUser.email,
+        "likes": [],
         "time": Timestamp.now(),
       });
     }
@@ -59,8 +60,11 @@ class _HomePageState extends State<HomePage> {
                         final post = snapshot.data!.docs[index];
 
                         return BugPost(
-                            message: post['message'],
-                            username: post['username']);
+                          message: post['message'],
+                          username: post['username'],
+                          postID: post.id,
+                          likes: List<String>.from(post['likes'] ?? []),
+                        );
                       },
                     );
                   } else if (snapshot.hasError) {
