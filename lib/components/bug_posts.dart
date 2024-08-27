@@ -38,6 +38,19 @@ class _BugPostState extends State<BugPost> {
     setState(() {
       isLiked = !isLiked;
     });
+
+    DocumentReference postRef =
+        FirebaseFirestore.instance.collection('user posts').doc(widget.postID);
+
+    if (isLiked) {
+      postRef.update({
+        'likes': FieldValue.arrayUnion([currentUser.email]),
+      });
+    } else {
+      postRef.update({
+        'likes': FieldValue.arrayRemove([currentUser.email]),
+      });
+    }
   }
 
   @override
@@ -79,7 +92,20 @@ class _BugPostState extends State<BugPost> {
           ),
 
           const Spacer(),
-          LikeButton(isLiked: isLiked, onTap: toggleLike)
+          Column(
+            children: [
+              // like button
+              LikeButton(isLiked: isLiked, onTap: toggleLike),
+              const SizedBox(
+                height: 10,
+              ),
+              // like count
+              Text(
+                widget.likes.length.toString(),
+                style: TextStyle(color: Colors.grey.shade600),
+              ),
+            ],
+          )
         ],
       ),
     );
