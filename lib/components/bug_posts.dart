@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class BugPost extends StatelessWidget {
@@ -11,21 +12,40 @@ class BugPost extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
+    return Container(
+      margin: const EdgeInsets.only(top: 25, left: 25, right: 25),
+      padding: const EdgeInsets.all(25),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.secondary,
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          //profile picture
           Container(
-            padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.secondary,
-              borderRadius: BorderRadius.circular(8),
+                shape: BoxShape.circle, color: Colors.grey.shade400),
+            padding: const EdgeInsets.all(10),
+            child: Icon(
+              Icons.person,
+              color: Theme.of(context).colorScheme.inversePrimary,
             ),
-            child: Column(
-              children: [Text(username), const Divider(), Text(message)],
-            ),
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                username,
+                style: TextStyle(color: Colors.grey.shade600),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(message),
+            ],
           )
         ],
       ),

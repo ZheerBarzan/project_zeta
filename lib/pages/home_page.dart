@@ -24,6 +24,10 @@ class _HomePageState extends State<HomePage> {
         "time": Timestamp.now(),
       });
     }
+
+    setState(() {
+      _messageController.clear();
+    });
   }
 
   final TextEditingController _messageController = TextEditingController();
@@ -102,6 +106,10 @@ class _HomePageState extends State<HomePage> {
 
             // login as
             Text("Logged in as ${currentUser.email!}"),
+
+            const SizedBox(
+              height: 50,
+            ),
           ],
         ),
       ),
