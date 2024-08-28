@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:project_bugkill/pages/home_page.dart';
+
+import 'package:project_bugkill/pages/nav_page.dart';
 import 'package:project_bugkill/services/login_or_register.dart';
 
 class AuthGate extends StatelessWidget {
@@ -14,7 +15,7 @@ class AuthGate extends StatelessWidget {
         builder: (context, snapshot) {
           //user logged in
           if (snapshot.hasData) {
-            return const HomePage();
+            return const NavPage();
           } else {
             //user not logged in
             return const LoginOrRegistrationPage();

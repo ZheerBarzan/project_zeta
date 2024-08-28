@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:project_bugkill/components/bug_posts.dart';
 import 'package:project_bugkill/components/my_drawer.dart';
 import 'package:project_bugkill/components/my_textfiled.dart';
+import 'package:project_bugkill/pages/profile_page.dart';
+import 'package:project_bugkill/pages/settings_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,16 +33,21 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void goToProfile() {
+    Navigator.pop(context);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const ProfilePage(),
+      ),
+    );
+  }
+
   final TextEditingController _messageController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("H O M E"),
-        backgroundColor: Theme.of(context).colorScheme.secondary,
-        elevation: 10,
-      ),
-      drawer: const MyDrawer(),
       body: Center(
         child: Column(
           children: [
@@ -109,7 +116,7 @@ class _HomePageState extends State<HomePage> {
             ),
 
             // login as
-            Text("Logged in as ${currentUser.email!}"),
+            //Text("Logged in as ${currentUser.email!}"),
 
             const SizedBox(
               height: 50,
