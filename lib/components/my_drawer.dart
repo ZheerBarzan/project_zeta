@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_bugkill/components/my_list_tile.dart';
 import 'package:project_bugkill/pages/settings_page.dart';
 import 'package:project_bugkill/services/auth_service.dart';
 
@@ -20,45 +21,36 @@ class MyDrawer extends StatelessWidget {
             children: [
               //logo
               DrawerHeader(
-                child: Icon(Icons.message,
+                child: Icon(Icons.person,
                     color: Theme.of(context).colorScheme.inversePrimary,
                     size: 50),
               ),
               //home list tile
-              Padding(
-                padding: const EdgeInsets.only(left: 25),
-                child: ListTile(
-                  title: const Text("H O M E"),
-                  leading: const Icon(Icons.home),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
+              MyListTile(
+                icon: Icons.home,
+                text: "H O M E",
+                onTap: () => Navigator.pop(context),
               ),
               //settings list tile
-              Padding(
-                padding: const EdgeInsets.only(left: 25),
-                child: ListTile(
-                  title: const Text("S E T T I N G S"),
-                  leading: const Icon(Icons.settings),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SettingsPage()));
-                  },
-                ),
+              MyListTile(
+                icon: Icons.settings,
+                text: "S E T T I N G S",
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SettingsPage(),
+                    ),
+                  );
+                },
               ),
             ],
           ),
           //logout
-          Padding(
-            padding: const EdgeInsets.only(left: 25, bottom: 25),
-            child: ListTile(
-              title: const Text("L O G O U T"),
-              leading: const Icon(Icons.logout),
-              onTap: logout,
-            ),
+          MyListTile(
+            icon: Icons.logout,
+            text: "L O G O U T",
+            onTap: logout,
           ),
         ],
       ),
