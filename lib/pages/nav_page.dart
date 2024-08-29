@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_bugkill/components/my_drawer.dart';
 import 'package:project_bugkill/pages/home_page.dart';
 import 'package:project_bugkill/pages/profile_page.dart';
 import 'package:project_bugkill/pages/settings_page.dart';
@@ -30,7 +29,6 @@ class _NavPageState extends State<NavPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const MyDrawer(),
       body: pages[currentIndex],
       bottomNavigationBar: Container(
         color: Theme.of(context).colorScheme.secondary,

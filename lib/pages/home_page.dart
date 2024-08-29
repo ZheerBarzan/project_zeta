@@ -5,7 +5,6 @@ import 'package:project_bugkill/components/bug_posts.dart';
 import 'package:project_bugkill/components/my_drawer.dart';
 import 'package:project_bugkill/components/my_textfiled.dart';
 import 'package:project_bugkill/pages/profile_page.dart';
-import 'package:project_bugkill/pages/settings_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
