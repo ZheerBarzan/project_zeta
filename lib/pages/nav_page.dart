@@ -30,11 +30,6 @@ class _NavPageState extends State<NavPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("B U G K I L L"),
-        backgroundColor: Theme.of(context).colorScheme.secondary,
-        elevation: 10,
-      ),
       drawer: const MyDrawer(),
       body: pages[currentIndex],
       bottomNavigationBar: Container(

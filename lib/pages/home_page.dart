@@ -48,6 +48,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("H O M E"),
+        backgroundColor: Theme.of(context).colorScheme.secondary,
+        elevation: 10,
+      ),
+      drawer: const MyDrawer(),
       body: Center(
         child: Column(
           children: [
@@ -119,7 +125,7 @@ class _HomePageState extends State<HomePage> {
             //Text("Logged in as ${currentUser.email!}"),
 
             const SizedBox(
-              height: 50,
+              height: 10,
             ),
           ],
         ),
