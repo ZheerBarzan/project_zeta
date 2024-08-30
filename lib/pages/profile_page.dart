@@ -12,6 +12,9 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   final currentUser = FirebaseAuth.instance.currentUser!;
+
+  Future<void> editField(String field) async {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,12 +54,25 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
 
           // user name
-          const MyTextBox(text: "Mr.Zheer", sectionName: "User Name"),
+          MyTextBox(
+              text: "Mr.Zheer",
+              sectionName: "User Name",
+              onPressed: () => editField("user name")),
 
           //bio
-          const MyTextBox(text: "I am a software engineer", sectionName: "Bio"),
+          MyTextBox(
+              text: "I am a software engineer",
+              sectionName: "Bio",
+              onPressed: () => editField("bio")),
 
           //user posts
+          const SizedBox(height: 20),
+
+          //user details
+          const Padding(
+            padding: EdgeInsets.only(left: 25),
+            child: Text("My Posts "),
+          ),
         ],
       ),
     );
