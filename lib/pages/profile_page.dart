@@ -18,6 +18,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: AppBar(
         title: const Text("P R O F I L E"),
         backgroundColor: Theme.of(context).colorScheme.secondary,
@@ -30,7 +31,8 @@ class _ProfilePageState extends State<ProfilePage> {
           // user profile picture
           Container(
             decoration: BoxDecoration(
-                shape: BoxShape.circle, color: Colors.grey.shade400),
+                shape: BoxShape.circle,
+                color: Theme.of(context).colorScheme.secondary),
             padding: const EdgeInsets.all(10),
             child: Icon(
               Icons.person,

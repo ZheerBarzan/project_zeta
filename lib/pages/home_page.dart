@@ -129,7 +129,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: Theme.of(context).colorScheme.primary,
     );
   }
 }
