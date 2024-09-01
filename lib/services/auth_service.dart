@@ -16,16 +16,26 @@ class AuthService {
   //sign in
 
   Future<UserCredential> signInWithEmailAndPassword(
-      String email, password) async {
+      String input, password) async {
+    String? email;
+
+    if (input.contains('@')) {
+      email = input;
+    } else {
+      QuerySnapshot querySnapshot = await _firestore
+          .collection("Users")
+          .where("username", isEqualTo: input)
+          .get();
+
+      if (querySnapshot.docs.isNotEmpty) {
+        email = querySnapshot.docs[0]['email'];
+      } else {
+        throw Exception("User not found");
+      }
+    }
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
-
-      // save user info if the user still exists
-      _firestore.collection("Users").doc(userCredential.user!.uid).set({
-        "uid": userCredential.user!.uid,
-        "email": email,
-      });
+          email: email!, password: password);
 
       return userCredential;
     } on FirebaseAuthException catch (e) {
@@ -44,11 +54,11 @@ class AuthService {
       );
 
       // save user info
-      _firestore.collection("Users").doc(userCredential.user!.uid).set({
-        "uid": userCredential.user!.uid,
+      _firestore.collection("Users").doc(userCredential.user!.email).set({
+        "username": email.split('@')[0],
+        "bio": "Empty Bio",
         "email": email,
       });
-
       return userCredential;
     } on FirebaseAuthException catch (e) {
       throw Exception(e.code);

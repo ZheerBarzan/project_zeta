@@ -37,7 +37,7 @@ class LoginPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             // logo
-            Icon(Icons.bug_report),
+            const Icon(Icons.bug_report),
             const SizedBox(
               height: 50,
             ),

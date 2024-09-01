@@ -46,7 +46,7 @@ class RegisterPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             // logo
-            Icon(Icons.bug_report),
+            const Icon(Icons.bug_report),
             const SizedBox(
               height: 50,
             ),
@@ -64,7 +64,7 @@ class RegisterPage extends StatelessWidget {
             ),
             //email Textfiled
             MyTextField(
-              hintText: "Username or Email",
+              hintText: "Enter your Email ",
               obscureText: false,
               controller: _emailController,
             ),
