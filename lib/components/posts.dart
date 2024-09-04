@@ -26,7 +26,10 @@ class BugPost extends StatefulWidget {
 class _BugPostState extends State<BugPost> {
   // make an instance of the user
   final currentUser = FirebaseAuth.instance.currentUser!;
+  final userPost = FirebaseFirestore.instance.collection('user posts');
   bool isLiked = false;
+  // comment text controller
+  final TextEditingController _commentController = TextEditingController();
 
   @override
   void initState() {
@@ -39,8 +42,7 @@ class _BugPostState extends State<BugPost> {
       isLiked = !isLiked;
     });
 
-    DocumentReference postRef =
-        FirebaseFirestore.instance.collection('user posts').doc(widget.postID);
+    DocumentReference postRef = userPost.doc(widget.postID);
 
     if (isLiked) {
       postRef.update({
@@ -53,6 +55,43 @@ class _BugPostState extends State<BugPost> {
     }
   }
 
+  // add comments
+
+  void addComment(String comment) {
+    userPost.doc(widget.postID).collection('comments').add({
+      "comment": comment,
+      "username": currentUser.displayName,
+      "time": Timestamp.now(),
+    });
+  }
+
+  // show dialog for adding comment
+
+  void showCommentDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text("Add Comment"),
+        content: TextField(
+          decoration: const InputDecoration(
+            hintText: "Enter comment",
+          ),
+          controller: _commentController,
+        ),
+        actions: [
+          MaterialButton(
+            child: const Text("cancel"),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          MaterialButton(
+            child: const Text("post"),
+            onPressed: () => addComment(_commentController.text),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -62,7 +101,7 @@ class _BugPostState extends State<BugPost> {
         color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.circular(8),
       ),
-      child: Row(
+      child: Column(
         children: [
           //profile picture
           Container(
