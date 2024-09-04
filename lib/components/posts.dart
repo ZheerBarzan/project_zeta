@@ -101,7 +101,7 @@ class _BugPostState extends State<BugPost> {
         color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.circular(8),
       ),
-      child: Column(
+      child: Row(
         children: [
           //profile picture
           Container(

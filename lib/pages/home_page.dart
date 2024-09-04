@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:project_bugkill/components/bug_posts.dart';
+import 'package:project_bugkill/components/posts.dart';
 import 'package:project_bugkill/components/my_drawer.dart';
 import 'package:project_bugkill/components/my_textfiled.dart';
 import 'package:project_bugkill/pages/profile_page.dart';
