@@ -61,7 +61,7 @@ class _BugPostState extends State<BugPost> {
   void addComment(String comment) {
     userPost.doc(widget.postID).collection('comments').add({
       "comment": comment,
-      "username": currentUser.displayName,
+      "username": currentUser.email,
       "time": Timestamp.now(),
     });
   }
@@ -82,11 +82,18 @@ class _BugPostState extends State<BugPost> {
         actions: [
           MaterialButton(
             child: const Text("cancel"),
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: () {
+              Navigator.of(context).pop();
+              _commentController.clear();
+            },
           ),
           MaterialButton(
             child: const Text("post"),
-            onPressed: () => addComment(_commentController.text),
+            onPressed: () {
+              addComment(_commentController.text);
+              Navigator.of(context).pop();
+              _commentController.clear();
+            },
           ),
         ],
       ),
