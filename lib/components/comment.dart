@@ -14,17 +14,23 @@ class Comment extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.secondary,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(8),
       ),
+      padding: const EdgeInsets.all(15),
+      margin: const EdgeInsets.only(bottom: 5),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(comment),
           Row(
             children: [
-              Text(user),
-              const Text("."),
-              Text(date),
+              Text(
+                user,
+                style: TextStyle(color: Colors.grey.shade600),
+              ),
+              const Text(" . "),
+              Text(date, style: TextStyle(color: Colors.grey.shade600)),
             ],
           ),
         ],

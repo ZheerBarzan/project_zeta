@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:project_bugkill/components/posts.dart';
 import 'package:project_bugkill/components/my_drawer.dart';
 import 'package:project_bugkill/components/my_textfiled.dart';
+import 'package:project_bugkill/helper/helper.dart';
 import 'package:project_bugkill/pages/profile_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -76,6 +77,7 @@ class _HomePageState extends State<HomePage> {
                           username: post['username'],
                           postID: post.id,
                           likes: List<String>.from(post['likes'] ?? []),
+                          time: formatDate(post['time']),
                         );
                       },
                     );

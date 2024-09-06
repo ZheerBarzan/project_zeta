@@ -12,13 +12,13 @@ class BugPost extends StatefulWidget {
   final String postID;
   final List<String> likes;
 
-  final Timestamp? time;
+  final String time;
 
   const BugPost(
       {super.key,
       required this.message,
       required this.username,
-      this.time,
+      required this.time,
       required this.postID,
       required this.likes});
 
@@ -132,6 +132,9 @@ class _BugPostState extends State<BugPost> {
                 widget.username,
                 style: TextStyle(color: Colors.grey.shade600),
               ),
+              const SizedBox(
+                width: 70,
+              ),
             ],
           ),
           const SizedBox(
@@ -157,8 +160,16 @@ class _BugPostState extends State<BugPost> {
                   CommentButton(onTap: showCommentDialog),
                   const Text("0"),
                 ],
-              )
+              ),
+              const Spacer(),
+              Text(
+                widget.time,
+                style: TextStyle(color: Colors.grey.shade600),
+              ),
             ],
+          ),
+          const SizedBox(
+            height: 10,
           ),
 
           // comments
