@@ -49,7 +49,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("H O M E"),
+        title: Center(
+            child: Image.asset("lib/images/Z.png", height: 100, width: 100)),
         backgroundColor: Theme.of(context).colorScheme.secondary,
         elevation: 10,
       ),
