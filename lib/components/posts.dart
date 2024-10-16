@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:project_bugkill/components/comment.dart';
-import 'package:project_bugkill/components/comment_button.dart';
-import 'package:project_bugkill/components/like_button.dart';
-import 'package:project_bugkill/helper/helper.dart';
+import 'package:project_zeta/components/comment.dart';
+import 'package:project_zeta/components/comment_button.dart';
+import 'package:project_zeta/components/like_button.dart';
+import 'package:project_zeta/helper/helper.dart';
 
 class BugPost extends StatefulWidget {
   final String message;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project_bugkill/components/my_button.dart';
-import 'package:project_bugkill/components/my_square.dart';
-import 'package:project_bugkill/components/my_textfiled.dart';
-import 'package:project_bugkill/services/auth_service.dart';
+import 'package:project_zeta/components/my_button.dart';
+import 'package:project_zeta/components/my_square.dart';
+import 'package:project_zeta/components/my_textfiled.dart';
+import 'package:project_zeta/services/auth_service.dart';
 
 class RegisterPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();

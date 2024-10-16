@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:project_bugkill/pages/home_page.dart';
-import 'package:project_bugkill/pages/profile_page.dart';
-import 'package:project_bugkill/pages/settings_page.dart';
+
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:project_zeta/pages/home_page.dart';
+import 'package:project_zeta/pages/profile_page.dart';
+import 'package:project_zeta/pages/settings_page.dart';
 
 class NavPage extends StatefulWidget {
   const NavPage({super.key});

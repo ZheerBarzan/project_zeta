@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:project_bugkill/components/my_drawer.dart';
-import 'package:project_bugkill/components/text_box.dart';
+import 'package:project_zeta/components/my_drawer.dart';
+import 'package:project_zeta/components/text_box.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

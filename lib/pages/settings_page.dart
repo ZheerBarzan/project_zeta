@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project_bugkill/components/my_drawer.dart';
-import 'package:project_bugkill/theme/theme_provider.dart';
+import 'package:project_zeta/components/my_drawer.dart';
+import 'package:project_zeta/theme/theme_provider.dart';
+
 import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {

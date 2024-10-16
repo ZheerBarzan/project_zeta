@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:project_zeta/services/auth_gate.dart';
+import 'package:project_zeta/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:project_bugkill/services/auth_gate.dart';
-import 'package:project_bugkill/theme/theme_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

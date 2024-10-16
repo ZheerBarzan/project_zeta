@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project_bugkill/components/my_list_tile.dart';
-import 'package:project_bugkill/pages/settings_page.dart';
-import 'package:project_bugkill/services/auth_service.dart';
+import 'package:project_zeta/components/my_list_tile.dart';
+import 'package:project_zeta/pages/settings_page.dart';
+import 'package:project_zeta/services/auth_service.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
